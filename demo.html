@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+</head>
+<body>
+    
+    <form onsubmit="emailSend1(); reset(); return false;">
+        <input type="text" id="uname" placeholder="name" required>
+        <input type="email" id="uemail" placeholder="email" required>
+        <input type="text" id="umessage" placeholder="message" required>
+        <button>submit</button>
+
+
+
+    </form>
+
+
+    <script>
+            function emailSend1() {
+            var uname = document.getElementById('uname').value;
+            var uemail = document.getElementById('uemail').value;
+            var umessage = document.getElementById('umessage').value;
+
+            var messageBody = "Name: &nbsp;" + uname +
+                "<br/> email: &nbsp;" + uemail +
+                "<br/> message: &nbsp;" + umessage;
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "abhishekbhagat6654@gmail.com",
+                Password: "1CE6C8DB41538BF80BC61F4C1F739B293A2C",
+                To: 'abhishekbhagat6654@gmail.com',
+                From: "abhishekbhagat6654@gmail.com",
+                Subject: "This is the subject",
+                Body: messageBody
+            }).then(
+                message => {
+                    if (message == 'OK') {
+                        alert("Sucessful");
+                    }
+                    else {
+                        alert("Error");
+                    }
+                }
+            );
+        }
+
+    
+    
+      
+    </script>
+</body>
+</html>
